@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CardAddScreenBody extends StatelessWidget {
-
   final wordTextController = TextEditingController();
+
   CardAddScreenBody({super.key});
 
   @override
@@ -16,4 +16,5 @@ class CardAddScreenBody extends StatelessWidget {
     );
   }
 
+  bool isApplyButtonActive() => false;
 }

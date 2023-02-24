@@ -1,0 +1,4 @@
+enum FloatingButtonType {
+  done,
+  add,
+}
