@@ -30,6 +30,8 @@ class _FloatingButtonState extends State<FloatingButtonContainer> {
       case FloatingButtonType.add:
         icon = Icons.add;
         break;
+      case FloatingButtonType.none:
+        throw "FloatingButtonType.none";
     }
     return Icon(icon);
   }

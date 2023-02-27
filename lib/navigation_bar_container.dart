@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:words/app.dart';
+import 'package:words/app/app.dart';
 
 class NavigationBarContainer extends StatefulWidget {
   const NavigationBarContainer({super.key});
