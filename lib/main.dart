@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:words/app/app.dart';
+import 'package:words/app_inject.dart';
 
 void main() {
+  setupInjects();
   Bloc.observer = AppBlocObserver();
   runApp(const App());
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:words/app/bloc/app_bloc.dart';
+import 'package:words/app/bloc/app_bloc_state.dart';
 import 'package:words/screen/ui/floatingbutton/floating_button_container.dart';
 import 'package:words/screen/ui/floatingbutton/floating_button_type.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,19 +24,24 @@ class BaseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appBloc = context.read<AppBloc>();
+    appBloc.updateType(buttonType);
     return Scaffold(
-      body: SafeArea(
-        child: BlocProvider(
-          create: (_) => bloc,
-          child: body,
+        body: SafeArea(
+          child: BlocProvider(
+            create: (_) => bloc,
+            child: body,
+          ),
         ),
-      ),
-      floatingActionButton: buttonType == FloatingButtonType.none
-          ? null
-          : FloatingButtonContainer(
-              onPressed: onPressed ?? () {},
-              type: buttonType,
-            ),
-    );
+        floatingActionButton: BlocBuilder<AppBloc, AppBlocState>(
+          builder: (_, state) {
+            return state.type == FloatingButtonType.none
+                ? Container()
+                : FloatingButtonContainer(
+                    onPressed: onPressed ?? () {},
+                    type: buttonType,
+                  );
+          },
+        ));
   }
 }

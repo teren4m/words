@@ -7,11 +7,25 @@ class CardAddScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: wordTextController,
-      decoration: const InputDecoration(
-        border: OutlineInputBorder(),
-        hintText: 'Add word',
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          TextField(
+            // controller: wordTextController,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Add word',
+            ),
+          ),
+          TextField(
+            // controller: wordTextController,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Add word',
+            ),
+          ),
+        ],
       ),
     );
   }
