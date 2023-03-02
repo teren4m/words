@@ -1,14 +1,17 @@
 import 'package:words/repository/model/word.dart';
 
-class WordsRepository{
-
+class WordsRepository {
   static List<Word> words = List.empty();
 
-  void addWord(Word word){
+  Word getWord(String word) {
+    throw 'no word';
+  }
+
+  void addWord(Word word) {
     words.add(word);
   }
 
-  List<Word> getWords(){
+  List<Word> getWords() {
     return words;
   }
 }
