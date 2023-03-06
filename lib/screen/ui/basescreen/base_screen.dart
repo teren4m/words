@@ -7,16 +7,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BaseScreen extends StatelessWidget {
   @protected
-  final Widget body;
-  @protected
   final FloatingButtonType buttonType;
   @protected
   final Function? onPressed;
   final Bloc bloc;
+  @protected
+  final Function createBody;
 
   const BaseScreen({
     super.key,
-    required this.body,
+    required this.createBody,
     this.buttonType = FloatingButtonType.none,
     this.onPressed,
     required this.bloc,
@@ -28,10 +28,7 @@ class BaseScreen extends StatelessWidget {
     appBloc.updateType(buttonType);
     return Scaffold(
         body: SafeArea(
-          child: BlocProvider(
-            create: (_) => bloc,
-            child: body,
-          ),
+          child: createBody(context),
         ),
         floatingActionButton: BlocBuilder<AppBloc, AppBlocState>(
           builder: (_, state) {

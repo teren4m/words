@@ -4,6 +4,9 @@ class GetWordUsecase {
   GetWordUsecase();
 
   Word getWord(String word) {
-    throw 'no word';
+    return Word(
+      text: word,
+      wordInfoList: List.empty(),
+    );
   }
 }
