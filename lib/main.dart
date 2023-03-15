@@ -12,6 +12,8 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   setupInjects();
-  Bloc.observer = AppBlocObserver();
+  Bloc.observer = AppBlocObserver(
+      getIt.get()
+  );
   runApp(const App());
 }
