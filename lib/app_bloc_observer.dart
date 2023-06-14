@@ -24,6 +24,7 @@ class AppBlocObserver extends BlocObserver {
   void onTransition(Bloc bloc, Transition transition) {
     super.onTransition(bloc, transition);
     debugPrint(transition.toString());
+
     _analyticsHelper.onTransition(transition);
   }
 }
